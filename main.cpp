@@ -6,16 +6,27 @@ class Barbarian{
 private:
     string opis;
     string skilovi;
-    string pasivne;
+    string pasivna;
     string pol;
     unsigned lvl;
 
 public:
-    Barbarian(){
-
+    Barbarian(string op, string skill, string pasiv, string mz, unsigned l){
+        opis=op;
+        skilovi=skill;
+        pasiv=pasivna;
+        mz=pol;
+        lvl=l;
     };
-    Barbarian();
-    Barbarian();
+    string getOpis{
+        return opis;
+    }
+    string getSkilovi{
+        return skilovi;
+    }
+    string getPasivna{
+
+    }
 };
 
 int main()
