@@ -5,15 +5,15 @@ enum DungunVarvarin{Tenk, Dps};
 
 class  Varvarin:Karakter{
 private:
-    DangunVarvarin tip;
+    DangunVarvarin tipVarvarina;
 public:
-    Varvarin(Varior tipVarvarina):Karater (string op, string skill, string passive, string p, tipnapada tip){
+    Varvarin(string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin dop):Karater (op, skill, passive, p, tipnapada tip){
         opis=op;
         skilovi=skill;
         pasivna=passive;
         pol=p;
-        daljina=tip;
-        tip=tipVarvarina;
+        tip=daljina;
+        tipVarvarina=vid;
     }
 };
 

@@ -1,12 +1,16 @@
 #ifndef ARMOR_HPP_INCLUDED
 #define ARMOR_HPP_INCLUDED
+
+using namespace std;
+
 enum deoArmora{Glava,Ramena,Torzo,Zglob,Ruke,Struk,Noge,Stopalo,Nakit,Offhend};
 
 enum Reriti{common, megic, sett, rare, legendary};
 
 enum Color{bela, plava, zelena, zuta, narandzasta};
+
 class Armor{
-private:
+protected:
     deoArmora tip;
     Reriti zastupljenost;
     Color boja;
