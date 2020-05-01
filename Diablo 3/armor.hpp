@@ -8,19 +8,32 @@ enum deoArmora{Glava,Ramena,Torzo,Zglob,Ruke,Struk,Noge,Stopalo,Nakit,Offhend};
 enum Reriti{common, megic, sett, rare, legendary};
 
 enum Color{bela, plava, zelena, zuta, narandzasta};
-
 class Armor{
 protected:
     deoArmora tip;
     Reriti zastupljenost;
     Color boja;
     unsigned armor;
-    string primBoost[100];
-    string secBoost[100];
-    string bonus[100];
-
+    string primBoost;
+    string secBoost;
+    string bonus;
 public:
+    Armor (deoArmora t, Reriti z, Color kol, unsigned a, string p, string s, string b){
+        tip=t;
+        zastupljenost=z;
+        boja=kol;
+        armor=a;
+        primBoost=p;
+        secBoost=s;
+        bonus=b;
+    }
+    unsigned setArmor(unsigned a){
+        armor=a;
+    }
 
+    Color setColor(Color p){
+        boja=p;
+    }
 };
 
 

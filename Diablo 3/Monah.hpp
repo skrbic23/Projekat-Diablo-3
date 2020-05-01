@@ -8,7 +8,7 @@ class Monah:Karakter{
 private:
     Monk tip;
 
-public;
+public:
 };
 
 #endif // MONAH_HPP_INCLUDED

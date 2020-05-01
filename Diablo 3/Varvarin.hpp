@@ -1,19 +1,19 @@
 #ifndef VARVARIN_HPP_INCLUDED
 #define VARVARIN_HPP_INCLUDED
 #include "Karakter.hpp"
-enum DungunVarvarin{Tenk, Dps};
+enum DungunVarvarin{vTenk, vDps};
 
 class  Varvarin:Karakter{
 private:
-    DangunVarvarin tipVarvarina;
+    DungunVarvarin variorudungunu;
 public:
-    Varvarin(string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin dop):Karater (op, skill, passive, p, tipnapada tip){
+    Varvarin(string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin tipVarvarina ){
         opis=op;
         skilovi=skill;
         pasivna=passive;
         pol=p;
-        tip=daljina;
-        tipVarvarina=vid;
+        daljina=tip;
+        variorudungunu=tipVarvarina;
     }
 };
 

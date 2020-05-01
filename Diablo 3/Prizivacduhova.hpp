@@ -1,7 +1,7 @@
 #ifndef PRIZIVACDUHOVA_HPP_INCLUDED
 #define PRIZIVACDUHOVA_HPP_INCLUDED
 #include "Karakter.hpp"
-enum    Duhovi{tenk, dps};
+enum    Duhovi{dTenk, dDps};
 
 class PrizivacDuhova:Karakter{
 private:

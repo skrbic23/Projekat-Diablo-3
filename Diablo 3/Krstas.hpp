@@ -1,12 +1,11 @@
 #ifndef KRSTAS_HPP_INCLUDED
 #define KRSTAS_HPP_INCLUDED
 #include "Karakter.hpp"
-enum Krsti{tenk};
+enum Krsti{kTenk};
 
 class Krstas:Karakter{
 private:
-    Krtsi tenk;
-
+    Krsti tipudungunu;
 public:
 };
 

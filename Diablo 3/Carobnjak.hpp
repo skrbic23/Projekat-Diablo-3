@@ -2,11 +2,11 @@
 #define CAROBNJAK_HPP_INCLUDED
 #include "Karakter.hpp"
 
-enum Wizard{hiler, dps};
+enum Wizard{wHiler, wDps};
 
 class Carobnjak: public Karakter{
 public:
-    Wizard tip;
+    Wizard tipuDungunu;
 
 public:
 };

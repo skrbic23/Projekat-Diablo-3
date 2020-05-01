@@ -1,6 +1,8 @@
 #ifndef KARAKTER_HPP_INCLUDED
 #define KARAKTER_HPP_INCLUDED
-#define maxlvl=80
+
+#define  maxlvl=80
+
 using namespace std;
 enum tipnapada{mele, rejng, magic};
 class Karakter{
