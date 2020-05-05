@@ -5,7 +5,7 @@
 enum Oruzija{twohand, ondhand, range};
 
 class Oruzije: public Gem{
-private:
+protected:
     Oruzija tip;
     Reriti tipzastupljenosti;
     int damage;
@@ -14,10 +14,8 @@ private:
     string sec;
     string boostt;
     bool gem;
-    Gem dodajemdmg;
-    Gem dodajemats;
 public:
-    Oruzije(Oruzija tipOruzija, Reriti z, int d, float u, string p, string s, string b, bool g, float dmg , float ats)::Gem(dmg, ats){
+    Oruzije(Oruzija tipOruzija, Reriti z, int d, float u, string p, string s, string b, bool g, float dmg , float ats):Gem(dmg, ats) {
     tip=tipOruzija;
     tipzastupljenosti=z;
     damage=d;
@@ -37,6 +35,15 @@ public:
     }
     int setDamage(int i){
         damage=i;
+    }
+    bool setGemtrue(bool g){
+        g=true;
+        gem=g;
+    }
+        bool setGemfalse(bool g){
+        g=false;
+        gem=g;
+
     }
 };
 

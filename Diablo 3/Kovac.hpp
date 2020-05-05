@@ -15,12 +15,12 @@ private:
     int cena;
     int i;
 public:
-        Kovac (string i, string n, int c){
+ /*       Kovac (string i, string n, int c){
         ime=i;
         nadimak=n;
         cena=c;
         }
-       /* Kovac Posao(){
+        Kovac Posao(){
         do{
         cout<<"Meni"<<endl;
         cout<<"1. forge-pravljenje novog oruzija"<<endl;

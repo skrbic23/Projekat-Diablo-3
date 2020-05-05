@@ -18,6 +18,8 @@ protected:
     string secBoost;
     string bonus;
 public:
+    Color boja;
+    unsigned armor;
     Armor (deoArmora t, Reriti z, Color kol, unsigned a, string p, string s, string b){
         tip=t;
         zastupljenost=z;

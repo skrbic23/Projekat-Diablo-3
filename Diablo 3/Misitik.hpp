@@ -1,18 +1,15 @@
 #ifndef MISITIK_HPP_INCLUDED
 #define MISITIK_HPP_INCLUDED
-#include <cstdlib>
 #include "armor.hpp"
 #include "Oruzije.hpp"
 #include "Gem.hpp"
+#include <cstdlib>
 enum posaoMistika{encentuj, transformisi};
 
-class Mistic: public Armor,public Gem,public Oruzije{
+class Mistic{
 private:
     string ime;
     string nadimak;
-    Armor armor;
-    Gem dodajemdmg;
-    Gem dodajemats;
     posaoMistika posao;
     int cena;
 public:
@@ -23,12 +20,14 @@ public:
         posao=p;
     }
     Mistic Encant(int i){
-    i=rand()%100
+    i=rand()%100;
     if(i%10==0){
         cout<<"Nisi dobio nista"<<endl;
     }
     else if(i%10==1){
-       setArmor(armor+10);
+        i=ARMOR;
+        i=i+10;
+       Armor::setArmor(i);
     }
     else if(i%10==2){
         setDamage(damage+10);

@@ -39,7 +39,7 @@ public:
         }
         else if(o.gem=false){
             o.gem=true;
-            o.gemm=g;
+            o.dodajemdmg=g.dodajemdmg;
         }
     }
 };
