@@ -12,12 +12,18 @@ private:
     string nadimak;
     posaoMistika posao;
     int cena;
+    Oruzije dmg;
+    Armor ar;
+    Gem gems;
 public:
-    Mistic (string i, string n, int c, posaoMistika p){
+    Mistic (string i, string n, int c, posaoMistika p, Oruzije o, Armor a, Gem g){
         ime=i;
         nadimak=n;
         cena=c;
         posao=p;
+        dmg=o;
+        ar=a;
+        gems=g;
     }
     Mistic Encant(int i){
     i=rand()%100;
@@ -25,41 +31,48 @@ public:
         cout<<"Nisi dobio nista"<<endl;
     }
     else if(i%10==1){
-        i=ARMOR;
+        i=ar.getArmor();
         i=i+10;
-       Armor::setArmor(i);
+       ar.setArmor(i);
     }
     else if(i%10==2){
-        setDamage(damage+10);
+        i=dmg.getDamage();
+        i=i+10;
+        dmg.setDamage(i);
     }
     else if(i%10==3){
-        setArmor(armor+20);
+        i=ar.getArmor();
+        i=i+20;
+       ar.setArmor(i);
     }
     else if(i%10==4){
-        setDamage(damage+20);
+        i=dmg.getDamage();
+        i=i+20;
+        dmg.setDamage(i);
     }
     else if (i%10==5){
-        setColor(bela);
+        ar.setColor(bela);
     }
     else if(i%10==6){
-        setColor(narandzasta);
+        ar.setColor(narandzasta);
     }
     else if(i%10==7){
-        setColor(zuta);
+        ar.setColor(zuta);
     }
     else if(i%10==8){
-        setColor(plava);
-    }
-    else if(i%10==9){
-        setColor(zelena);
+        ar.setColor(plava);
     }
     else {
-        setArmor(armor+20);
-        setDamage(damage+20);
+        i=ar.getArmor();
+        i=i+20;
+        ar.setArmor(i);
+        i=dmg.getDamage();
+        i=i+20;
+        dmg.setDamage(i);
     }
     }
     Mistic Tranformisi(Color p){
-        setColor(p);
+        ar.setColor(p);
     }
 };
 

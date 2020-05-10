@@ -4,7 +4,7 @@
 
 enum posaoZlatara{combine, remuv};
 
-class Zlatar: public Oruzije{
+class Zlatar{
 private:
     string ime;
     string nadimak;
@@ -12,34 +12,47 @@ private:
     posaoZlatara zlatar;
     int cena;
     int z;
-    Gem g;
+    Gem g1, g2;
 public:
-    Zlatar (string i, string n, int c, posaoZlatara p){
+    Zlatar (string i, string n, int c, posaoZlatara p, Gem a, Gem b){
         ime=i;
         nadimak=n;
         cena=c;
         zlatar=p;
+        g1=a;
+        g2=b;
     }
-    Zlatar KombajnujGem(Gem c, Gem b){
-        setAts(c.dodajemats+b.dodajemats);
-        setDamage(c.dodajemdmg+c.dodajemdmg);
+    Zlatar KombajnujGem(Gem a, Gem b){
+        int dmg;
+        float ats;
+        ats=a.getGemats();
+        ats=ats+b.getGemats();
+        dmg=a.getGemdmg();
+        dmg=dmg+b.getGemdmg();
+        a.setAts(ats);
+        b.setAts(ats);
+        a.setDmg(dmg);
+        b.setDmg(dmg);
     }
-    Zlatar DodajGem(Oruzije o, Gem g){
-        if(o.gem=true){
+    Zlatar DodajGem(Oruzije o, Gem a){
+        bool gag=o.getGem();
+        if(gag==true){
             cout<<"Ovo oruzije vec ima gem, da li zelis da ga izvadis?"<<endl;
-            count<<"1. DA"<<endl;
+            cout<<"1. DA"<<endl;
             cout<<"2. NE"<<endl;
             cin>>z;
             if(z=1){
-                o.gem= false;
+                o.setGemfalse(gag);
             }
-            else{
-                continue
+            else if(z==2){
+                o.setGemtrue(gag);
             }
         }
-        else if(o.gem=false){
-            o.gem=true;
-            o.dodajemdmg=g.dodajemdmg;
+        else if(gag==false){
+            o.setGemtrue(gag);
+            int gdmad;
+            gdmad=a.getGemdmg();
+            o.setDamage(gdmad);
         }
     }
 };

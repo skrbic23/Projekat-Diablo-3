@@ -1,5 +1,6 @@
 #ifndef ORUZIJE_HPP_INCLUDED
 #define ORUZIJE_HPP_INCLUDED
+#include <string>
 #include "armor.hpp"
 #include "Gem.hpp"
 enum Oruzija{twohand, ondhand, range};
@@ -15,6 +16,17 @@ protected:
     string boostt;
     bool gem;
 public:
+    Oruzije():Gem(){
+    tip=twohand;
+    tipzastupljenosti=common;
+    damage=0;
+    udarciposekundi=1;
+    prim="Nema";
+    sec="Nema";
+    boostt="Nema";
+    gem=false;
+    }
+
     Oruzije(Oruzija tipOruzija, Reriti z, int d, float u, string p, string s, string b, bool g, float dmg , float ats):Gem(dmg, ats) {
     tip=tipOruzija;
     tipzastupljenosti=z;
@@ -33,6 +45,13 @@ public:
         setAts(0);
         }
     }
+    int getDamage()const{
+        return damage;
+    }
+    bool getGem()const{
+        return gem;
+    }
+
     int setDamage(int i){
         damage=i;
     }
@@ -45,6 +64,17 @@ public:
         gem=g;
 
     }
+    friend ostream& operator<<(ostream& izlaz, const Oruzije& o);
 };
-
+ostream& operator<<(ostream& izlaz, const Oruzije& o){
+    izlaz<<"Tip: "<<o.tip<<endl;
+    izlaz<<"Reriti: "<<o.tipzastupljenosti<<endl;
+    izlaz<<"Damage: "<<o.damage<<endl;
+    izlaz<<"Udarci po sekundi: "<<o.udarciposekundi<<endl;
+    izlaz<<"Primarni boost: "<<o.prim<<endl;
+    izlaz<<"Sekundarni boost: "<<o.sec<<endl;
+    izlaz<<"Boost: "<<o.boostt<<endl;
+    izlaz<<"Gem: "<<o.gem<<endl;
+    return izlaz;
+}
 #endif // ORUZIJE_HPP_INCLUDED

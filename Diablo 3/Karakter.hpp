@@ -7,6 +7,7 @@ using namespace std;
 enum tipnapada{mele, rejng, magic};
 class Karakter{
 protected:
+    string ime;
     string opis;
     string skilovi;
     string pasivna;
@@ -15,7 +16,8 @@ protected:
     unsigned lvl;
 
 public:
-    Karater (string op, string skill, string passive, string p, tipnapada tip){
+    Karater (string i, string op, string skill, string passive, string p, tipnapada tip){
+        ime=i;
         opis=op;
         skilovi=skill;
         pasivna=passive;

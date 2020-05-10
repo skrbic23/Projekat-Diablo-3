@@ -18,8 +18,15 @@ protected:
     string secBoost;
     string bonus;
 public:
-    Color boja;
-    unsigned armor;
+    Armor (){
+    tip=Glava;
+    zastupljenost=common;
+    boja=bela;
+    armor=0;
+    primBoost="Nema";
+    secBoost="Nema";
+    bonus="Nema";
+    }
     Armor (deoArmora t, Reriti z, Color kol, unsigned a, string p, string s, string b){
         tip=t;
         zastupljenost=z;
@@ -32,11 +39,23 @@ public:
     unsigned setArmor(unsigned a){
         armor=a;
     }
+    unsigned getArmor() const {
+        return armor;
+    }
 
     Color setColor(Color p){
         boja=p;
     }
+    friend ostream operator<<(ostream& izlaz, const Armor& a);
 };
-
+ostream operator<<(ostream& izlaz, const Armor& a){
+    izlaz<<"Deo: "<<a.tip<<endl;
+    izlaz<<"Reriti: "<<a.zastupljenost<<endl;
+    izlaz<<"Boja: "<<a.boja<<endl;
+    izlaz<<"Armor: "<<a.armor<<endl;
+    izlaz<<"Primarni boost: "<<a.primBoost<<endl;
+    izlaz<<"Sekundarni boost: "<<a.secBoost<<endl;
+    izlaz<<"Bonus: "<<a.bonus<<endl;
+}
 
 #endif // ARMOR_HPP_INCLUDED

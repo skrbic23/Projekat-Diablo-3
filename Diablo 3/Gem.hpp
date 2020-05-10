@@ -3,12 +3,23 @@
 using namespace std;
 class Gem{
 protected:
+    string naziv;
     float dodajemdmg;
     float dodajemats;
 public:
-    Gem (float dd, float da){
+    Gem(){
+        dodajemats=0;
+        dodajemdmg=0;
+    }
+    Gem ( float dd, float da){
         dodajemdmg=dd;
         dodajemats=da;
+    }
+    float getGemdmg()const{
+        return dodajemdmg;
+    }
+    float getGemats()const{
+        return dodajemats;
     }
     float setDmg(float d){
         dodajemdmg=d;

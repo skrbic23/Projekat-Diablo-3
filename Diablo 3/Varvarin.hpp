@@ -7,41 +7,68 @@
 
 enum DungunVarvarin{vTenk, vDps};
 
-void Pisiufile(string Nazivfile, string prva, string druga, string treca,string cetvrta, string peta, string sesta, char mode='app'){
-    ofstream mojfile("Proba.txt", ios::app);
-    mojfile<<prva<<', '<<druga<<', '<<treca<<', '<<cetvrta<<', '<<peta<<', '<<sesta<<endl;
-    mojfile.close();
-}
-
-void Citajizfajle(string Nazivfile){
-    ifstream mojfile("Proba.txt");
-    string linija;
-    if (mojfile.is_open()){
-            while(getline(mojfile, linija)){
-                cout<<linija<<'\n';
-            }
-        mojfile.close();
-    }
-        else
-            cout<<"nesto si zabrljo"<<endl;
-}
 
 class  Varvarin: public Karakter{
 private:
     DungunVarvarin variorudungunu;
+    string nazivfile;
+    static int BrojVarvarina;
 public:
-    Varvarin(string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin tipVarvarina ){
+    Varvarin(string i, string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin tipVarvarina ) : Karakter(){
+        ime=i;
         opis=op;
         skilovi=skill;
         pasivna=passive;
         pol=p;
         daljina=tip;
         variorudungunu=tipVarvarina;
-        Pisiufile("Varvarinupis.txt", opis, skilovi, pasivna, pol, daljina, variorudungunu);
+        BrojVarvarina++;
+        string nazivfile="Varvarin.txt";
     }
-    friend Pisiufile();
-    friend Citajizfajle();
+    void pisiTxtVarvarin(string nazivFajla, Varvarin v, char mode='w'){
+    ofstream fajl;
+
+    if (mode=='a'){
+        fajl.open (nazivFajla, ios_base::app);
+    }else{
+        fajl.open (nazivFajla);
+    }
+    fajl <<v.opis<<","<<v.skilovi<<","<<v.pasivna<<","<<v.pol<<","<<v.daljina<<","<<v.variorudungunu<<'\n'<< endl;
+    fajl.close();
+
+    }
+    void citajTxtVarvarin(string nazivFajla){
+    string linija;
+    ifstream fajl (nazivFajla);
+    if (fajl.is_open())
+    {
+        while ( getline (fajl,linija) )
+        {
+            cout << linija << '\n';
+        }
+        fajl.close();
+    }
+
+    else
+        cout << "Neuspesno otvoren fajl";
+
+    }
+    int getbrojVarvarina(){
+        return BrojVarvarina;
+    }
+    friend pisiTxtVarvarin();
+    friend citajTxtVarvarin();
+    friend ostream& operator<<(ostream& izlaz, const Varvarin& v);
 };
-
-
+ostream& operator<<(ostream& izlaz, const Varvarin& v){
+    izlaz<<"Ispis Varvarina: "<<v.ime<<endl;
+    izlaz<<"Opis: "<< v.opis<<endl;
+    izlaz<<"Skilovi: "<<v.skilovi<<endl;
+    izlaz<<"Pasivne: "<<v.pasivna<<endl;
+    izlaz<<"Pol: "<<v.pol<<endl;
+    izlaz<<"Range: "<<v.daljina<<endl;
+    izlaz<<"Tip variora u raidu: "<<v.variorudungunu<<endl;
+    return izlaz;
+}
+int Varvarin::BrojVarvarina=0;
 #endif // VARVARIN_HPP_INCLUDED
