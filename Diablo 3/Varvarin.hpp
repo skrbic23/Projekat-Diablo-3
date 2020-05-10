@@ -33,7 +33,7 @@ public:
     }else{
         fajl.open (nazivFajla);
     }
-    fajl <<v.opis<<","<<v.skilovi<<","<<v.pasivna<<","<<v.pol<<","<<v.daljina<<","<<v.variorudungunu<<'\n'<< endl;
+    fajl <<v.ime<<","<<v.opis<<","<<v.skilovi<<","<<v.pasivna<<","<<v.pol<<","<<v.daljina<<","<<v.variorudungunu<<'\n'<< endl;
     fajl.close();
 
     }
