@@ -1,2 +1,6 @@
-Test,Test,Test,Test,0,0
+Kasko,Test,Test,Test,Test,0,0
+
+Brang,Test2,Test2,Test2,Test2,0,1
+
+Bjorn,Test3,Test3,Test3,Test3,0,1
 

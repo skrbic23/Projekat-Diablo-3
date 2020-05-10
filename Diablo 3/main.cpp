@@ -19,7 +19,11 @@ int main()
 {
     Varvarin Kasko("Kasko", "Test", "Test", "Test", "Test", mele, vTenk);
     Armor prvaGlava(Glava, legendary, plava, 150,"Nema", "Nema", "Nema");
+    Varvarin Brang("Brang", "Test2", "Test2", "Test2", "Test2", mele, vDps);
+    Varvarin Bjorn("Bjorn", "Test3", "Test3", "Test3", "Test3", mele, vDps);
     Kasko.pisiTxtVarvarin("Varvarin.txt", Kasko);
+    Kasko.pisiTxtVarvarin("Varvarin.txt", Brang, 'a');
+    Bjorn.pisiTxtVarvarin("Varvarin.txt", Bjorn, 'a');
     Kasko.citajTxtVarvarin("Varvarin.txt");
     cout<<Kasko<<endl;
     cout<<"Broj varvarina u igrici: "<<Kasko.getbrojVarvarina()<<'\n'<<endl;
