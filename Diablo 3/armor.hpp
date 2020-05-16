@@ -46,9 +46,9 @@ public:
     Color setColor(Color p){
         boja=p;
     }
-    friend ostream operator<<(ostream& izlaz, const Armor& a);
+    friend ostream& operator<<(ostream& izlaz, const Armor& a);
 };
-ostream operator<<(ostream& izlaz, const Armor& a){
+ostream& operator<<(ostream& izlaz, const Armor& a){
     izlaz<<"Deo: "<<a.tip<<endl;
     izlaz<<"Reriti: "<<a.zastupljenost<<endl;
     izlaz<<"Boja: "<<a.boja<<endl;
@@ -56,6 +56,7 @@ ostream operator<<(ostream& izlaz, const Armor& a){
     izlaz<<"Primarni boost: "<<a.primBoost<<endl;
     izlaz<<"Sekundarni boost: "<<a.secBoost<<endl;
     izlaz<<"Bonus: "<<a.bonus<<endl;
+    return izlaz;
 }
 
 #endif // ARMOR_HPP_INCLUDED

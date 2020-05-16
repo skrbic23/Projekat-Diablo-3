@@ -14,13 +14,8 @@ private:
     string nazivfile;
     static int BrojVarvarina;
 public:
-    Varvarin(string i, string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin tipVarvarina ) : Karakter(){
-        ime=i;
-        opis=op;
-        skilovi=skill;
-        pasivna=passive;
-        pol=p;
-        daljina=tip;
+
+    Varvarin (string i, string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin tipVarvarina, unsigned l) : Karakter( i, op, skill, passive, p, tip, l){
         variorudungunu=tipVarvarina;
         BrojVarvarina++;
         string nazivfile="Varvarin.txt";
@@ -38,23 +33,29 @@ public:
 
     }
     void citajTxtVarvarin(string nazivFajla){
-    string linija;
-    ifstream fajl (nazivFajla);
-    if (fajl.is_open())
-    {
-        while ( getline (fajl,linija) )
-        {
+        string linija;
+        ifstream fajl (nazivFajla);
+            if (fajl.is_open())
+            {
+                while ( getline (fajl,linija) ){
             cout << linija << '\n';
-        }
+                }
         fajl.close();
-    }
+        }
 
-    else
-        cout << "Neuspesno otvoren fajl";
+        else
+            cout << "Neuspesno otvoren fajl";
 
     }
     int getbrojVarvarina(){
         return BrojVarvarina;
+    }
+    ~Varvarin(){
+        BrojVarvarina--;
+    }
+    void IspisiKarakter(){
+        cout<<"Ja sam varvarin"<<endl;
+        Karakter::IspisiKarakter();
     }
     friend pisiTxtVarvarin();
     friend citajTxtVarvarin();

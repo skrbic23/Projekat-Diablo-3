@@ -64,17 +64,18 @@ public:
         gem=g;
 
     }
-    friend ostream& operator<<(ostream& izlaz, const Oruzije& o);
+    friend ostream& operator<<(ostream& oruzije, const Oruzije& o);
 };
-ostream& operator<<(ostream& izlaz, const Oruzije& o){
-    izlaz<<"Tip: "<<o.tip<<endl;
-    izlaz<<"Reriti: "<<o.tipzastupljenosti<<endl;
-    izlaz<<"Damage: "<<o.damage<<endl;
-    izlaz<<"Udarci po sekundi: "<<o.udarciposekundi<<endl;
-    izlaz<<"Primarni boost: "<<o.prim<<endl;
-    izlaz<<"Sekundarni boost: "<<o.sec<<endl;
-    izlaz<<"Boost: "<<o.boostt<<endl;
-    izlaz<<"Gem: "<<o.gem<<endl;
-    return izlaz;
+
+ostream& operator<<(ostream& oruzije, const Oruzije& o){
+    oruzije<<"Tip: "<<o.tip<<endl;
+    oruzije<<"Reriti: "<<o.tipzastupljenosti<<endl;
+    oruzije<<"Damage: "<<o.damage<<endl;
+    oruzije<<"Udarci po sekundi: "<<o.udarciposekundi<<endl;
+    oruzije<<"Primarni boost: "<<o.prim<<endl;
+    oruzije<<"Sekundarni boost: "<<o.sec<<endl;
+    oruzije<<"Boost: "<<o.boostt<<endl;
+    oruzije<<"Gem: "<<o.gem<<endl;
+    return oruzije;
 }
 #endif // ORUZIJE_HPP_INCLUDED
