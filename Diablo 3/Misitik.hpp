@@ -3,7 +3,8 @@
 #include "armor.hpp"
 #include "Oruzije.hpp"
 #include "Gem.hpp"
-#include <cstdlib>
+#include <stdlib.h>
+
 enum posaoMistika{encentuj, transformisi};
 
 class Mistic{
@@ -16,63 +17,79 @@ private:
     Armor ar;
     Gem gems;
 public:
-    Mistic (string i, string n, int c, posaoMistika p, Oruzije o, Armor a, Gem g){
+    Mistic (string i, string n, int c){
         ime=i;
         nadimak=n;
         cena=c;
-        posao=p;
-        dmg=o;
-        ar=a;
-        gems=g;
     }
-    Mistic Encant(int i){
-    i=rand()%100;
+    void Encant( Armor *ar, Oruzije *dmg){
+    int i=rand()%100;
     if(i%10==0){
         cout<<"Nisi dobio nista"<<endl;
     }
     else if(i%10==1){
-        i=ar.getArmor();
+        i=ar->getArmor();
         i=i+10;
-       ar.setArmor(i);
+       ar->setArmor(i);
+       cout<<"dobili ste 10 armora na deo armora"<<endl;
     }
     else if(i%10==2){
-        i=dmg.getDamage();
+        i=dmg->getDamage();
         i=i+10;
-        dmg.setDamage(i);
+        dmg->setDamage(i);
+        cout<<"Dobili ste 10 dmg na oruzije"<<endl;
     }
     else if(i%10==3){
-        i=ar.getArmor();
+        i=ar->getArmor();
         i=i+20;
-       ar.setArmor(i);
+       ar->setArmor(i);
+       cout<<"Dobili ste 20 armora na dati deo armora"<<endl;
     }
     else if(i%10==4){
-        i=dmg.getDamage();
+        i=dmg->getDamage();
         i=i+20;
-        dmg.setDamage(i);
+        dmg->setDamage(i);
+        cout<<"Dobili ste 20 dmg na oruzije"<<endl;
     }
     else if (i%10==5){
-        ar.setColor(bela);
+        ar->setColor(bela);
+        cout<<"Armor je sad beo"<<endl;
     }
     else if(i%10==6){
-        ar.setColor(narandzasta);
+        ar->setColor(narandzasta);
+        cout<<"Armor je sad narandzast"<<endl;
     }
     else if(i%10==7){
-        ar.setColor(zuta);
+        ar->setColor(zuta);
+        cout<<"Armor je sad zut"<<endl;
     }
     else if(i%10==8){
-        ar.setColor(plava);
+        ar->setColor(plava);
+        cout<<"Armor je sad plav"<<endl;
     }
-    else {
-        i=ar.getArmor();
+    else if(i%10==9){
+        i=ar->getArmor();
         i=i+20;
-        ar.setArmor(i);
-        i=dmg.getDamage();
+        ar->setArmor(i);
+        i=dmg->getDamage();
         i=i+20;
-        dmg.setDamage(i);
+        dmg->setDamage(i);
+        cout<<"Dobil ste 20 dmg i 20 armora na izabrane delove"<<endl;
     }
     }
-    Mistic Tranformisi(Color p){
-        ar.setColor(p);
+    void Tranformisi(Armor *ar, Color p){
+        ar->setColor(p);
+    }
+    void ispisMistik(){
+        cout<<"Ime: "<<ime<<endl;
+        cout<<"Nadimak: "<<nadimak<<endl;
+        cout<<"Cena: "<<cena<<endl;
+    }
+    int getCena()const{
+        return cena;
+    }
+    string getNaziv(){
+        return ime;
     }
 };
 

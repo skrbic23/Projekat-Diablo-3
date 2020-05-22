@@ -8,10 +8,12 @@ protected:
     float dodajemats;
 public:
     Gem(){
+        naziv="GEM";
         dodajemats=0;
         dodajemdmg=0;
     }
-    Gem ( float dd, float da){
+    Gem (string g, float dd, float da){
+        naziv=g;
         dodajemdmg=dd;
         dodajemats=da;
     }
@@ -26,6 +28,14 @@ public:
     }
     float setAts(float a){
         dodajemats=a;
+    }
+    void ispisiGem(){
+        cout<<naziv<<endl;
+        cout<<dodajemdmg<<endl;
+        cout<<dodajemats<<endl;
+    }
+    string getNaziv(){
+        return naziv;
     }
 };
 

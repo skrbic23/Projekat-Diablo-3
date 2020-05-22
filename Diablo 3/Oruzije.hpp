@@ -3,7 +3,7 @@
 #include <string>
 #include "armor.hpp"
 #include "Gem.hpp"
-enum Oruzija{twohand, ondhand, range};
+enum Oruzija{twohand, onehand, range};
 
 class Oruzije: public Gem{
 protected:
@@ -15,6 +15,7 @@ protected:
     string sec;
     string boostt;
     bool gem;
+    int id;
 public:
     Oruzije():Gem(){
     tip=twohand;
@@ -25,9 +26,10 @@ public:
     sec="Nema";
     boostt="Nema";
     gem=false;
+    id=1111;
     }
 
-    Oruzije(Oruzija tipOruzija, Reriti z, int d, float u, string p, string s, string b, bool g, float dmg , float ats):Gem(dmg, ats) {
+    Oruzije(Oruzija tipOruzija, Reriti z, int d, float u, string p, string s, string b, bool g,int ks=0, float dmg=0, float ats=0, string gems="Nema"):Gem(gems, dmg, ats) {
     tip=tipOruzija;
     tipzastupljenosti=z;
     damage=d;
@@ -44,6 +46,7 @@ public:
         setDmg(0);
         setAts(0);
         }
+    id=ks;
     }
     int getDamage()const{
         return damage;
@@ -62,7 +65,20 @@ public:
         bool setGemfalse(bool g){
         g=false;
         gem=g;
-
+    }
+    int getoruzijeId() const{
+        return id;
+    }
+    void ispisideoOruzije(){
+        cout<<"Tip: "<<tip<<endl;
+        cout<<"Reriti: "<<tipzastupljenosti<<endl;
+        cout<<"Damage: "<<damage<<endl;
+        cout<<"Udarci po sekundi: "<<udarciposekundi<<endl;
+        cout<<"Primarni boost: "<<prim<<endl;
+        cout<<"Sekundarni boost: "<<sec<<endl;
+        cout<<"Bonus: "<<boostt<<endl;
+        cout<<"Gem: "<<gem<<endl;
+        cout<<"Id:"<<id<<endl;
     }
     friend ostream& operator<<(ostream& oruzije, const Oruzije& o);
 };
@@ -74,7 +90,7 @@ ostream& operator<<(ostream& oruzije, const Oruzije& o){
     oruzije<<"Udarci po sekundi: "<<o.udarciposekundi<<endl;
     oruzije<<"Primarni boost: "<<o.prim<<endl;
     oruzije<<"Sekundarni boost: "<<o.sec<<endl;
-    oruzije<<"Boost: "<<o.boostt<<endl;
+    oruzije<<"Bonus: "<<o.boostt<<endl;
     oruzije<<"Gem: "<<o.gem<<endl;
     return oruzije;
 }

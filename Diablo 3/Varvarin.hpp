@@ -14,7 +14,6 @@ private:
     string nazivfile;
     static int BrojVarvarina;
 public:
-
     Varvarin (string i, string op, string skill, string passive, string p, tipnapada tip, DungunVarvarin tipVarvarina, unsigned l) : Karakter( i, op, skill, passive, p, tip, l){
         variorudungunu=tipVarvarina;
         BrojVarvarina++;
@@ -54,7 +53,7 @@ public:
         BrojVarvarina--;
     }
     void IspisiKarakter(){
-        cout<<"Ja sam varvarin"<<endl;
+        cout<<"Ja sam varvarin."<<endl;
         Karakter::IspisiKarakter();
     }
     friend pisiTxtVarvarin();

@@ -3,22 +3,36 @@
 #include "armor.hpp"
 #include "Oruzije.hpp"
 
-enum posaoKovaca{forge , salvage, buy, sell};
 
 class Kovac{
 private:
     string ime;
     string nadimak;
-    posaoKovaca posao;
     int cena;
     int i;
+    int uspesnost;
 public:
-        Kovac (string i, string n, int c, posaoKovaca p){
+    Kovac (string i, string n, int c, int u){
         ime=i;
         nadimak=n;
         cena=c;
-        posao=p;
-        }
+        uspesnost=u;
+    }
+    void ispisKovac(){
+        cout<<"Ime: "<<ime<<endl;
+        cout<<"Nadimak: "<<nadimak<<endl;
+        cout<<"Cena: "<<cena<<endl;
+        cout<<"Uspesnost: "<<uspesnost<<endl;
+    }
+    int getUspesnost()const{
+        return uspesnost;
+    }
+    string getNaziv()const{
+        return ime;
+    }
+    int getCena()const{
+            return cena;
+    }
 };
 
 
