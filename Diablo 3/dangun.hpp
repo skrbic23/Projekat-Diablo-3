@@ -7,9 +7,15 @@ class Dangun{
 private:
     string Miniboss;
     string Boss;
-    deoArmora loot;
 public:
-
+    Dangun (){
+        Miniboss="Clyde";
+        Boss="Drexler";
+    }
+    Dangun(string m, string b){
+        Miniboss=m;
+        Boss=b;
+    }
 };
 
 
